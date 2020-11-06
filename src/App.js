@@ -1,23 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import { Router } from '@reach/router';
+import PuppiesComp from './components/PuppiesComp';
+import KittenComp from './components/KittenComp';
+import ManyPuppies from './components/ManyPuppies';
+import ProfilePreview from './components/ProfileView';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1> Hello from Main Page Navigation!</h1>
+      <Router >
+        <PuppiesComp path="/puppy"/> 
+        <KittenComp path="/kitten" />
+        <ManyPuppies path="/:number" />
+      </Router>
+
+      <ProfilePreview 
+      username="James"
+      thumbnailUrl={'https://images-cdn.9gag.com/photo/aOKgZpR_460s.jpg'}
+      likeCount={3}
+      bio="this is my bio."      
+      />
     </div>
   );
 }
