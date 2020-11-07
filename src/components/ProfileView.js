@@ -1,9 +1,12 @@
 import React, { useState}  from 'react';
 
 const ProfilePreview = (props) => {
-    const [likes, setLikes] = useState(props.data.likeCount)
-    console.log(props);
     const { username, likeCount, thumbnailUrl, bio} = props.data;
+
+    // const [likes, setLikes] = useState(props.data.likeCount)
+    const [likes, setLikes] = useState(likeCount)
+
+    console.log(props);
 // so the props doesn need to be repeated below;
 
 const containerStyle = {
@@ -28,10 +31,12 @@ const imgStyle = {
             <p>
                 <span role="img" aria-label="Thumbs up"
                  onClick={(event) => {
-                     props.data.likeCount++}}
+                     console.log(props.data.likeCount)
+                    setLikes(likes +1);                    
+                    }}
                 
                 >  &#128077;</span>
-                 {likeCount}</p>
+                 {likes}</p>
             <img style={imgStyle} width="100%" src={thumbnailUrl} alt="Thumbnail" />
             <h4>Bio</h4>
             <p>{bio}</p>
