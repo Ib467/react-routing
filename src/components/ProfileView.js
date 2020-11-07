@@ -29,7 +29,10 @@ const imgStyle = {
                 {username}
             </h2>
             <p>
-                <span role="img" aria-label="Thumbs up"
+            <i class="fas fa-thumbs-up"></i>
+                <span role="img" 
+                aria-label="Thumbs up"
+                style= {{cursor:"pointer"}}
                  onClick={(event) => {
                      console.log(props.data.likeCount)
                     setLikes(likes +1);                    
